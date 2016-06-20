@@ -7,9 +7,9 @@ ENV SERVICE_HOME=/opt/kafka \
     SCALA_VERSION=2.11 \
     SERVICE_VERSION=0.9.0.1 \
     SERVICE_USER=kafka \
-    SERVICE_UID=10002 \
+    SERVICE_UID=10003 \
     SERVICE_GROUP=kafka \
-    SERVICE_GID=10002 \
+    SERVICE_GID=10003 \
     SERVICE_URL=http://apache.mirrors.spacedump.net/kafka
 ENV SERVICE_RELEASE=kafka_"$SCALA_VERSION"-"$SERVICE_VERSION"  
 
