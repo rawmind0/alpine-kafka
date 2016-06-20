@@ -15,7 +15,7 @@ ENV SERVICE_RELEASE=kafka_"$SCALA_VERSION"-"$SERVICE_VERSION"
 
 # Install and configure kafka
 RUN curl -sS -k ${SERVICE_URL}/${SERVICE_VERSION}/${SERVICE_RELEASE}.tgz | gunzip -c - | tar -xf - -C /opt \
-  && ln -s /opt/${SERVICE_RELEASE} ${SERVICE_HOME} \
+  && mv /opt/${SERVICE_RELEASE} ${SERVICE_HOME} \
   && cd ${SERVICE_HOME}/libs/ \
   && mkdir ${SERVICE_HOME}/data ${SERVICE_HOME}/logs \
   && addgroup -g ${SERVICE_GID} ${SERVICE_GROUP} \
