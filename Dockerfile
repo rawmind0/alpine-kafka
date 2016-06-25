@@ -1,4 +1,4 @@
-FROM rawmind/alpine-jvm8:1.8.92-1
+FROM rawmind/alpine-jvm8:1.8.92-2
 MAINTAINER Raul Sanchez <rawmind@gmail.com>
 
 # Set environment
@@ -10,13 +10,14 @@ ENV SERVICE_HOME=/opt/kafka \
     SERVICE_UID=10003 \
     SERVICE_GROUP=kafka \
     SERVICE_GID=10003 \
-    SERVICE_URL=http://apache.mirrors.spacedump.net/kafka
-ENV SERVICE_RELEASE=kafka_"$SCALA_VERSION"-"$SERVICE_VERSION"  
+    SERVICE_URL=http://apache.mirrors.spacedump.net/kafka 
+ENV SERVICE_RELEASE=kafka_"$SCALA_VERSION"-"$SERVICE_VERSION" \
+    SERVICE_CONF=${SERVICE_HOME}/config/server.properties
 
 # Install and configure kafka
 RUN curl -sS -k ${SERVICE_URL}/${SERVICE_VERSION}/${SERVICE_RELEASE}.tgz | gunzip -c - | tar -xf - -C /opt \
   && mv /opt/${SERVICE_RELEASE} ${SERVICE_HOME} \
-  && cd ${SERVICE_HOME}/libs/ \
+  && rm ${SERVICE_CONF} \
   && mkdir ${SERVICE_HOME}/data ${SERVICE_HOME}/logs \
   && addgroup -g ${SERVICE_GID} ${SERVICE_GROUP} \
   && adduser -g "${SERVICE_NAME} user" -D -h ${SERVICE_HOME} -G ${SERVICE_GROUP} -s /sbin/nologin -u ${SERVICE_UID} ${SERVICE_USER} 
