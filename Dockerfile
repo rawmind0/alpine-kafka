@@ -12,7 +12,7 @@ ENV SERVICE_HOME=/opt/kafka \
     SERVICE_GID=10003 \
     SERVICE_URL=http://apache.mirrors.spacedump.net/kafka 
 ENV SERVICE_RELEASE=kafka_"$SCALA_VERSION"-"$SERVICE_VERSION" \
-    SERVICE_CONF=${SERVICE_HOME}/config/server.properties
+    SERVICE_CONF=${SERVICE_HOME}/config/server.properties 
 
 # Install and configure kafka
 RUN curl -sS -k ${SERVICE_URL}/${SERVICE_VERSION}/${SERVICE_RELEASE}.tgz | gunzip -c - | tar -xf - -C /opt \

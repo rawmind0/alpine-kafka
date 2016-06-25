@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
-export SERVICE_CONF=${SERVICE_CONF:-"/opt/kafka/config/server.properties"}
+SERVICE_LOG_DIR=${KAFKA_LOG_DIRS:-${SERVICE_HOME}"/logs"}
+SERVICE_LOG_FILE=${SERVICE_LOG_FILE:-${SERVICE_LOG_DIR}"/server.log"}
 
 function log {
         echo `date` $ME - $@
@@ -21,9 +22,9 @@ function serviceConf {
 
 function serviceLog {
     log "[ Redirecting ${SERVICE_NAME} log to stdout... ]"
-    if [ ! -L ${KAFKA_LOG_FILE} ]; then
-        rm ${KAFKA_LOG_FILE}
-        ln -sf /proc/1/fd/1 ${KAFKA_LOG_FILE}
+    if [ ! -L ${SERVICE_LOG_FILE} ]; then
+        rm ${SERVICE_LOG_FILE}
+        ln -sf /proc/1/fd/1 ${SERVICE_LOG_FILE}
     fi
 }
 

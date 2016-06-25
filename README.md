@@ -11,7 +11,7 @@ docker build -t rawmind/alpine-kafka:<version> .
 
 ## Versions
 
-- `0.9.0.1-1` [(Dockerfile)](https://github.com/rawmind0/alpine-kafka/blob/0.9.0.1-1/Dockerfile)
+- `0.9.0.1-2` [(Dockerfile)](https://github.com/rawmind0/alpine-kafka/blob/0.9.0.1-2/Dockerfile)
 
 ## Configuration
 
