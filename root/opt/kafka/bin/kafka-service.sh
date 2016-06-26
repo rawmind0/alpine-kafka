@@ -47,12 +47,12 @@ function serviceStart {
 
 function serviceStop {
     log "[ Stoping ${SERVICE_NAME}... ]"
-    pid=`ps ax | grep -i 'kafka\.Kafka' | grep java | grep -v grep | awk '{print $1}'`
+    pid=`ps ax | grep java | grep server | grep -v grep | awk '{print $1}'`
 
 	while [ "x$pid" != "x" ]; do
     	kill -SIGTERM $pid
     	sleep 5 
-    	pid=`ps ax | grep -i 'kafka\.Kafka' | grep java | grep -v grep | awk '{print $1}'`
+    	pid=`ps ax | grep java | grep server | grep -v grep | awk '{print $1}'`
 	done
 }
 
@@ -73,7 +73,11 @@ case "$1" in
         "restart")
             serviceRestart
         ;;
-        *) echo "Usage: $0 restart|start|stop"
+        *) 
+            echo "Usage: $0 restart|start|stop"
+            exit 1
         ;;
 
 esac
+
+exit 0
