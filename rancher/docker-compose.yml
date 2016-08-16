@@ -1,6 +1,6 @@
 broker:
   tty: true
-  image: rawmind/alpine-kafka:0.10.0.0-3
+  image: rawmind/alpine-kafka:0.10.0.0-4
   volumes_from:
     - broker-volume
     - broker-conf
