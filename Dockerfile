@@ -1,4 +1,4 @@
-FROM rawmind/alpine-jvm8:1.8.92-4
+FROM rawmind/alpine-jvm8:1.8.92-7
 MAINTAINER Raul Sanchez <rawmind@gmail.com>
 
 # Set environment
@@ -10,6 +10,7 @@ ENV SERVICE_HOME=/opt/kafka \
     SERVICE_UID=10003 \
     SERVICE_GROUP=kafka \
     SERVICE_GID=10003 \
+    SERVICE_VOLUME=/opt/tools \
     SERVICE_URL=http://apache.mirrors.spacedump.net/kafka 
 ENV SERVICE_RELEASE=kafka_"$SCALA_VERSION"-"$SERVICE_VERSION" \
     SERVICE_CONF=${SERVICE_HOME}/config/server.properties 

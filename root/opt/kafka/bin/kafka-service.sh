@@ -31,7 +31,7 @@ function serviceLog {
 function serviceCheck {
     log "[ Checking ${SERVICE_NAME} configuration... ]"
 
-    if [ -d "/opt/tools" ]; then
+    if [ -d "${SERVICE_VOLUME}" ]; then
         serviceConf
     else
         serviceDefault
