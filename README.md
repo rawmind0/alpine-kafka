@@ -31,7 +31,8 @@ kafka is installed with the default configuration and some parameters can be ove
 - KAFKA_LOG_RETENTION_HOURS=${KAFKA_LOG_RETENTION_HOURS:-"168"}	# Log retention hours
 - KAFKA_NUM_PARTITIONS=${KAFKA_NUM_PARTITIONS:-"1"}				# Number of partitions
 - KAFKA_ZK_HOST=${KAFKA_ZK_HOST:-"127.0.0.1"}					# Zk host
-- KAFKA_EXT_IP=${KAFKA_EXT_IP:-""}								# Advertise external ip if value != ""
+- KAFKA_ZK_PORT=${KAFKA_ZK_PORT:-"2181"}						# Zk port
+- KAFKA_EXT_IP=${KAFKA_EXT_IP:-""}								# Advertise external ip or name if value != ""
 
 
 ### Custom Configuration
