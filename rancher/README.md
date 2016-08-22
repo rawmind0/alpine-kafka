@@ -17,6 +17,7 @@
 - KAFKA_LOG_DIRS="/opt/kafka/logs"
 - KAFKA_LOG_RETENTION_HOURS="168"
 - KAFKA_NUM_PARTITIONS="1"
+- KAFKA_DELETE_TOPICS="false"
 - ADVERTISE_PUB_IP= < true | false >
 
  Select zookeeper stack/service to connect to.

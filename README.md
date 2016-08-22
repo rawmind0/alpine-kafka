@@ -11,7 +11,7 @@ docker build -t rawmind/alpine-kafka:<version> .
 
 ## Versions
 
-- `0.10.0.0-5` [(Dockerfile)](https://github.com/rawmind0/alpine-kafka/blob/0.10.0.0-5/Dockerfile)
+- `0.10.0.0-6` [(Dockerfile)](https://github.com/rawmind0/alpine-kafka/blob/0.10.0.0-6/Dockerfile)
 - `0.9.0.1-2` [(Dockerfile)](https://github.com/rawmind0/alpine-kafka/blob/0.9.0.1-2/Dockerfile)
 
 ## Configuration
@@ -27,6 +27,7 @@ kafka is installed with the default configuration and some parameters can be ove
 - KAFKA_HEAP_OPTS=${JVMFLAGS:-"-Xmx1G -Xms1G"}     				# Kafka memory value
 - KAFKA_ADVERTISE_PORT=${KAFKA_ADVERTISE_PORT:-"9092"}			# Port to advertise
 - KAFKA_LISTENER=${KAFKA_LISTENER:-"PLAINTEXT://0.0.0.0:${KAFKA_ADVERTISE_PORT}"}	# Listerner string 
+- KAFKA_DELETE_TOPICS=${KAFKA_DELETE_TOPICS:-"false"}			# Enable kafka delete topics
 - KAFKA_LOG_DIRS=${KAFKA_LOG_DIRS:-"${SERVICE_HOME}/logs"}		# Log directories.
 - KAFKA_LOG_RETENTION_HOURS=${KAFKA_LOG_RETENTION_HOURS:-"168"}	# Log retention hours
 - KAFKA_NUM_PARTITIONS=${KAFKA_NUM_PARTITIONS:-"1"}				# Number of partitions

@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: "broker-conf"
-          image: "rawmind/k8s-kafka:0.10.0.0-2"
+          image: "rawmind/k8s-kafka:0.10.0.0-3"
           volumeMounts:
             - mountPath: "/opt/tools"
               name: "broker-conf"
@@ -39,7 +39,7 @@ spec:
           ports: 
           imagePullPolicy: "IfNotPresent"
         - name: "broker-service"
-          image: "rawmind/alpine-kafka:0.10.0.0-5"
+          image: "rawmind/alpine-kafka:0.10.0.0-6"
           env:
             - name: JVMFLAGS
               value: "-Xmx${kafka_mem}m -Xms${kafka_mem}m"
@@ -47,6 +47,8 @@ spec:
               value: "${kafka_interval}"
             - name: KAFKA_ZK_SERVICE
               value: "${zk_link}"
+            - name: KAFKA_DELETE_TOPICS
+              value: "${kafka_delete_topics}"
             - name: KAFKA_LOG_DIRS
               value: "${kafka_log_dir}"
             - name: KAFKA_LOG_RETENTION_HOURS
