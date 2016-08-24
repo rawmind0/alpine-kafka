@@ -60,7 +60,7 @@ spec:
             - name: POD_NAMESPACE
               value: "${zk_namespace}"
           volumeMounts:
-            - mountPath: "${zk_data_dir}"
+            - mountPath: "${kafka_log_dir}"
               name: "broker-data"
             - mountPath: "/opt/tools"
               name: "broker-conf"
