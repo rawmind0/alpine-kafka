@@ -68,9 +68,12 @@
     - variable: "kafka_pub_ip"
       description: "Advertise local and host public ip" 
       label: "Broker public ip:"
-      required: false
-      default: false 
-      type: "boolean"
+      default: false
+      required: true
+      type: enum
+      options:
+        - false
+        - true
     - variable: "zk_link"
       description: |
         Choose the Zookeeper service to use. 
