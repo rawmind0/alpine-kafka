@@ -4,7 +4,7 @@ metadata:
   name: "${kafka_name}"
   namespace: "${kafka_namespace}"
   labels:
-    name: "${kkafka_name}"
+    name: "${kafka_name}"
 spec:
   replicas: ${kafka_scale}
   selector:
@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: "broker-conf"
-          image: "rawmind/k8s-kafka:0.10.0.0-3"
+          image: "rawmind/k8s-kafka:0.10.0.0-4"
           volumeMounts:
             - mountPath: "/opt/tools"
               name: "broker-conf"
@@ -58,7 +58,7 @@ spec:
             - name: ADVERTISE_PUB_IP
               value: "${kafka_pub_ip}"
             - name: POD_NAMESPACE
-              value: "${zk_namespace}"
+              value: "${kafka_namespace}"
           volumeMounts:
             - mountPath: "${kafka_log_dir}"
               name: "broker-data"
