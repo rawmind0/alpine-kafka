@@ -14,13 +14,16 @@
  
  Change the following kafka default parameters, if you need:
 
-- KAFKA_LOG_DIRS="/opt/kafka/logs"
-- KAFKA_LOG_RETENTION_HOURS="168"
-- KAFKA_NUM_PARTITIONS="1"
-- KAFKA_DELETE_TOPICS="false"
-- ADVERTISE_PUB_IP= < true | false >
-
- Select zookeeper stack/service to connect to.
+- kafka_name="kafka"					# kafka k8s service and rc name.
+- kafka_namespace="kafka"				# kafka k8s namespace
+- kafka_scale=3							# kafka scale to deploy.
+- kafka_mem=512							# kafka broker memory.
+- kafka_log_dir="/opt/kafka/logs"		# Kafka log dir.
+- kafka_log_retention="168"				# kafka log retention. 
+- kafka_num_partitions="1"				# Kafka partitions number
+- kafka_delete_topics="false"			# kafka delete topics
+- kafka_pub_ip= < true | false >		# Advertise public ip to zookeeper.
+- zk_link="kafka-zk/zk" 				# zookeeper namespace/service to connect to.
  
  Click deploy.
  
