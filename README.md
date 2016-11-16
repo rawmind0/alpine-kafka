@@ -51,6 +51,9 @@ You could also include FROM rawmind/alpine-kafka at the top of your Dockerfile, 
 
 If you are running it in rancher, you could run [rancher-kafka][rancher-kafka] as a sidekick to get dynamic configuration.
 
+### k8s
+
+If you are running it in k8s, you could run [k8s-kafka][k8s-kafka] at the same pod to get dynamic configuration.
 
 ## Example
 
@@ -60,4 +63,6 @@ See [rancher-example][rancher-example], that run kafka in a rancher system with 
 [alpine-jvm8]: https://github.com/rawmind0/alpine-jvm8/
 [kafka]: http://kafka.apache.org/
 [rancher-kafka]: https://hub.docker.com/r/rawmind/rancher-kafka/
+[k8s-kafka]: https://hub.docker.com/r/rawmind/k8s-kafka/
 [rancher-example]: https://github.com/rawmind0/alpine-kafka/tree/master/rancher
+[k8s-example]: https://github.com/rawmind0/alpine-kafka/tree/master/k8s

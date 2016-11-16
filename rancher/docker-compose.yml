@@ -1,6 +1,6 @@
 broker:
   tty: true
-  image: rawmind/alpine-kafka:0.10.0.0-7
+  image: rawmind/alpine-kafka:0.10.0.1
   volumes_from:
     - broker-volume
     - broker-conf
@@ -32,12 +32,12 @@ broker-volume:
   net: none
   labels:
     io.rancher.scheduler.affinity:container_label_soft_ne: io.rancher.stack_service.name=$${stack_name}/$${service_name}
-    io.rancher.container.hostname_override: container_name
-    io.rancher.container.start_once: true
-  environment:
     - SERVICE_UID=10003
     - SERVICE_GID=10003
-    - SERVICE_VOLUME=${kafka_log_dir}
+    - SERVICE_VOLUME=${kafka_log_dir}    io.rancher.container.hostname_override: container_name
+    io.rancher.container.start_once: true
+  environment:
+
   volumes:
     - ${kafka_log_dir}
   volume_driver: local
