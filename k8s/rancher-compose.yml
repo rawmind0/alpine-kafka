@@ -1,6 +1,6 @@
 .catalog:
   name: Kafka
-  version: 0.10.0.1-k8s1
+  version: 0.10.2.0-k8s1
   description: |
     (Experimental) Apache Kafka cluster.
   minimum_rancher_version: v0.59.0
