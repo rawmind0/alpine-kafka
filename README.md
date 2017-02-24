@@ -13,7 +13,8 @@ docker build -t rawmind/alpine-kafka:<version> .
 
 ## Versions
 
-- `0.10.0.2-2` [(Dockerfile)](https://github.com/rawmind0/alpine-kafka/blob/0.10.0.2-2/Dockerfile)
+- `0.10.2.0-2` [(Dockerfile)](https://github.com/rawmind0/alpine-kafka/blob/0.10.2.0-2/Dockerfile)
+- `0.10.2.0-1` [(Dockerfile)](https://github.com/rawmind0/alpine-kafka/blob/0.10.2.0-1/Dockerfile)
 - `0.10.0.1-1` [(Dockerfile)](https://github.com/rawmind0/alpine-kafka/blob/0.10.0.1-1/Dockerfile)
 - `0.10.0.0-7` [(Dockerfile)](https://github.com/rawmind0/alpine-kafka/blob/0.10.0.0-7/Dockerfile)
 - `0.9.0.1-2` [(Dockerfile)](https://github.com/rawmind0/alpine-kafka/blob/0.9.0.1-2/Dockerfile)
