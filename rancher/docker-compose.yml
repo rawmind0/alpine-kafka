@@ -1,6 +1,6 @@
 broker:
   tty: true
-  image: rawmind/alpine-kafka:0.10.2.0-2
+  image: rawmind/alpine-kafka:0.10.2.1
   volumes_from:
     - broker-volume
     - broker-conf
@@ -25,7 +25,7 @@ broker-conf:
     io.rancher.scheduler.affinity:container_label_soft_ne: io.rancher.stack_service.name=$${stack_name}/$${service_name}
     io.rancher.container.hostname_override: container_name
     io.rancher.container.start_once: true
-  image: rawmind/rancher-kafka:0.10.0.0-3
+  image: rawmind/rancher-kafka:0.10.2.0
   volumes:
     - /opt/tools
 broker-volume:

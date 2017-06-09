@@ -4,8 +4,8 @@ MAINTAINER Raul Sanchez <rawmind@gmail.com>
 # Set environment
 ENV SERVICE_HOME=/opt/kafka \
     SERVICE_NAME=kafka \
-    SCALA_VERSION=2.11 \
-    SERVICE_VERSION=0.10.2.0 \
+    SCALA_VERSION=2.12 \
+    SERVICE_VERSION=0.10.2.1 \
     SERVICE_USER=kafka \
     SERVICE_UID=10003 \
     SERVICE_GROUP=kafka \
