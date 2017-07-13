@@ -33,6 +33,8 @@ log.dirs=${KAFKA_LOG_DIRS}
 num.partitions=${KAFKA_NUM_PARTITIONS}
 num.recovery.threads.per.data.dir=1
 delete.topic.enable=${KAFKA_DELETE_TOPICS}
+auto.create.topics.enable=${KAFKA_AUTO_CREATE_TOPICS}
+default.replication.factor=${KAFKA_REPLICATION_FACTOR}
 ############################# Log Flush Policy #############################
 #log.flush.interval.messages=10000
 #log.flush.interval.ms=1000
