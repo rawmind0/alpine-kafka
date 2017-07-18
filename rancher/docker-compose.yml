@@ -27,7 +27,7 @@ broker-conf:
     io.rancher.scheduler.affinity:container_label_soft_ne: io.rancher.stack_service.name=$${stack_name}/$${service_name}
     io.rancher.container.hostname_override: container_name
     io.rancher.container.start_once: true
-  image: rawmind/rancher-kafka:0.11.0.0
+  image: rawmind/rancher-kafka:0.11.0.0-1
   volumes:
     - /opt/tools
 broker-volume:
