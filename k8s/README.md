@@ -22,6 +22,8 @@
 - kafka_log_retention="168"				# kafka log retention. 
 - kafka_num_partitions="1"				# Kafka partitions number
 - kafka_delete_topics="false"			# kafka delete topics
+- kafka_auto_create_topics="true"		# kafka auto create topics
+- kafka_replication_factor=1 			# Kafka replication factor
 - kafka_pub_ip= < true | false >		# Advertise public ip to zookeeper.
 - zk_link="kafka-zk/zk" 				# zookeeper namespace/service to connect to.
  

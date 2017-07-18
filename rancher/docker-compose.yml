@@ -1,6 +1,6 @@
 broker:
   tty: true
-  image: rawmind/alpine-kafka:0.11.0.0
+  image: rawmind/alpine-kafka:0.11.0.0-1
   volumes_from:
     - broker-volume
     - broker-conf
@@ -13,6 +13,8 @@ broker:
     - KAFKA_LOG_RETENTION_HOURS=${kafka_log_retention}
     - KAFKA_NUM_PARTITIONS=${kafka_num_partitions}
     - ADVERTISE_PUB_IP=${kafka_pub_ip}
+    - KAFKA_AUTO_CREATE_TOPICS=${kafka_auto_create_topics}
+    - KAFKA_REPLICATION_FACTOR=${kafka_replication_factor}
   external_links:
     - ${zk_link}:zk
   labels: 

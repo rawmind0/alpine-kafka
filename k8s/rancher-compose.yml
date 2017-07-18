@@ -59,6 +59,22 @@
       options:
         - false
         - true
+    - variable: "kafka_auto_create_topics"
+      label: "Auto create topics:"
+      description: |
+        Enable auto create topics in kafka.
+      default: true
+      required: true
+      type: enum
+      options:
+        - false
+        - true
+    - variable: "kafka_replication_factor"
+      description: "Topics replication factor" 
+      label: "Replication factor:"
+      required: true
+      default: 1 
+      type: "int"
     - variable: "kafka_interval"
       description: "Interval to poll/apply configuration changes. 0 to disable" 
       label: "Broker Interval (s):"

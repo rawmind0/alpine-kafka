@@ -13,7 +13,7 @@ docker build -t rawmind/alpine-kafka:<version> .
 
 ## Versions
 
-- `0.11.0.0` [(Dockerfile)](https://github.com/rawmind0/alpine-kafka/blob/0.11.0.0/Dockerfile)
+- `0.11.0.0-1` [(Dockerfile)](https://github.com/rawmind0/alpine-kafka/blob/0.11.0.0-1/Dockerfile)
 - `0.10.2.1` [(Dockerfile)](https://github.com/rawmind0/alpine-kafka/blob/0.10.2.1/Dockerfile)
 - `0.10.2.0-2` [(Dockerfile)](https://github.com/rawmind0/alpine-kafka/blob/0.10.2.0-2/Dockerfile)
 - `0.10.0.1-1` [(Dockerfile)](https://github.com/rawmind0/alpine-kafka/blob/0.10.0.1-1/Dockerfile)
@@ -40,6 +40,8 @@ kafka is installed with the default configuration and some parameters can be ove
 - KAFKA_ZK_HOST=${KAFKA_ZK_HOST:-"127.0.0.1"}					# Zk host
 - KAFKA_ZK_PORT=${KAFKA_ZK_PORT:-"2181"}						# Zk port
 - KAFKA_EXT_IP=${KAFKA_EXT_IP:-""}								# Advertise external ip or name if value != ""
+- KAFKA_AUTO_CREATE_TOPICS=${KAFKA_AUTO_CREATE_TOPICS:-"true"}	# Auto create topics
+- KAFKA_REPLICATION_FACTOR=${KAFKA_REPLICATION_FACTOR:-1}		# Replication factor
 
 
 ### Custom Configuration

@@ -39,7 +39,7 @@ spec:
           ports: 
           imagePullPolicy: "IfNotPresent"
         - name: "broker-service"
-          image: "rawmind/alpine-kafka:0.11.0.0"
+          image: "rawmind/alpine-kafka:0.11.0.0-1"
           env:
             - name: JVMFLAGS
               value: "-Xmx${kafka_mem}m -Xms${kafka_mem}m"
@@ -59,6 +59,10 @@ spec:
               value: "${kafka_pub_ip}"
             - name: POD_NAMESPACE
               value: "${kafka_namespace}"
+            - name: KAFKA_AUTO_CREATE_TOPICS
+              value: "${kafka_auto_create_topics}"
+            - name: KAFKA_REPLICATION_FACTOR
+              value: "${kafka_replication_factor}"
           volumeMounts:
             - mountPath: "${kafka_log_dir}"
               name: "broker-data"
