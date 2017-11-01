@@ -13,11 +13,13 @@ ENV SERVICE_HOME=/opt/kafka \
     SERVICE_VOLUME=/opt/tools \
     SERVICE_URL=http://apache.mirrors.spacedump.net/kafka 
 ENV SERVICE_RELEASE=kafka_"$SCALA_VERSION"-"$SERVICE_VERSION" \
-    SERVICE_CONF=${SERVICE_HOME}/config/server.properties 
+    SERVICE_CONF=${SERVICE_HOME}/config/server.properties \
+    PATH=$PATH:${SERVICE_HOME}/bin
 
 # Install and configure kafka
 RUN curl -sS -k ${SERVICE_URL}/${SERVICE_VERSION}/${SERVICE_RELEASE}.tgz | gunzip -c - | tar -xf - -C /opt \
   && mv /opt/${SERVICE_RELEASE} ${SERVICE_HOME} \
+  && rm -rf ${SERVICE_HOME}/bin/windows \
   && rm ${SERVICE_CONF} \
   && mkdir ${SERVICE_HOME}/data ${SERVICE_HOME}/logs \
   && addgroup -g ${SERVICE_GID} ${SERVICE_GROUP} \
