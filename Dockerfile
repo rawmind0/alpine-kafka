@@ -1,4 +1,4 @@
-FROM rawmind/alpine-jvm8:1.8.144-2
+FROM rawmind/alpine-jvm8:1.8.144-1
 MAINTAINER Raul Sanchez <rawmind@gmail.com>
 
 # Set environment
