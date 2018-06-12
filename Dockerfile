@@ -5,7 +5,7 @@ MAINTAINER Raul Sanchez <rawmind@gmail.com>
 ENV SERVICE_HOME=/opt/kafka \
     SERVICE_NAME=kafka \
     SCALA_VERSION=2.12 \
-    SERVICE_VERSION=1.0.0 \
+    SERVICE_VERSION=1.1.0 \
     SERVICE_USER=kafka \
     SERVICE_UID=10003 \
     SERVICE_GROUP=kafka \
