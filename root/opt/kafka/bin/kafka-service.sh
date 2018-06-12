@@ -42,18 +42,29 @@ function serviceStart {
     log "[ Starting ${SERVICE_NAME}... ]"
     serviceCheck
     serviceLog
-    ${SERVICE_HOME}/bin/kafka-server-start.sh -daemon ${SERVICE_CONF}
+    if [ ! -f ${SERVICE_HOME}/${SERVICE_NAME}.pid ]; then
+        nohup ${SERVICE_HOME}/bin/kafka-server-start.sh ${SERVICE_CONF} 2>&1 >> ${SERVICE_LOG_FILE} 2>&1 &
+        echo $! > ${SERVICE_HOME}/${SERVICE_NAME}.pid
+    else 
+        log "[ ${SERVICE_NAME} is already running]"
+        serviceRestart
+    fi
 }
 
 function serviceStop {
     log "[ Stoping ${SERVICE_NAME}... ]"
-    pid=`ps ax | grep java | grep server | grep -v grep | awk '{print $1}'`
+    if [ -f ${SERVICE_HOME}/${SERVICE_NAME}.pid ]; then
+        pid=`cat ${SERVICE_HOME}/${SERVICE_NAME}.pid`
+        kill -SIGTERM $pid
 
-	while [ "x$pid" != "x" ]; do
-    	kill -SIGTERM $pid
-    	sleep 5 
-    	pid=`ps ax | grep java | grep server | grep -v grep | awk '{print $1}'`
-	done
+    	until [ `ps --pid $pid 2> /dev/null | grep -c $pid 2> /dev/null` -eq '0' ]
+        do
+            log "[ Waiting to stop ${SERVICE_NAME} process... ]"
+            sleep 5
+        done
+
+        rm ${SERVICE_HOME}/${SERVICE_NAME}.pid
+    fi
 }
 
 function serviceRestart {
@@ -65,13 +76,13 @@ function serviceRestart {
 
 case "$1" in
         "start")
-            serviceStart
+            serviceStart &>> /proc/1/fd/1
         ;;
         "stop")
-            serviceStop
+            serviceStop &>> /proc/1/fd/1
         ;;
         "restart")
-            serviceRestart
+            serviceRestart &>> /proc/1/fd/1
         ;;
         *) 
             echo "Usage: $0 restart|start|stop"
